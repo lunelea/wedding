@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang = "zh-Hant-Tw">
+    <head>
+        <title>純練習</title>
+        <meta charset="UTF-8">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Noto+Serif+TC:wght@200..900&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&display=swap');
+
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            /* 背景 */
+            body{
+                display: flex;
+                background-color:#f2e6f2;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
+
+            /* 卡片 */
+            .card{
+                position: relative;
+                width: 380px;
+                height: 600px;
+                perspective: 1000px; /* 卡片翻轉視角 */
+                transform-style: preserve-3d;
+            }
+
+            .font{
+                display: flex;
+                flex-direction: column;
+                padding: 40px 20px 20px 20px;
+                gap: 0px;
+                background-color: white;/* 卡片背景色 */
+                width: 380px;
+                min-height: 600px;
+                align-items: center;
+                border-radius: 30px;/* 卡片圓角 */
+                box-shadow: 10px 10px 20px gray;/* 卡片陰影 */
+            }
+
+            /* 卡片背面 */
+            .back{
+                transform: rotateY(-180deg); /* 卡片翻轉動畫 */
+                display: flex;
+                flex-direction: column;
+                padding: 40px 20px 20px 20px;
+                gap: 0px;
+                background-color: white;/* 卡片背景色 */
+                width: 380px;
+                min-height: 600px;
+                text-align: center;
+                border-radius: 30px;/* 卡片圓角 */
+                box-shadow: 10px 10px 20px gray;/* 卡片陰影 */
+            }
+
+            /* 圖片 */
+            img{
+                width: 150px;
+                height: 150px;
+                border: 3px solid #c7a76c;
+                border-radius: 50%;/* 圓形圖片 */
+                box-shadow: 10px 10px 20px gray;
+            }
+
+            /* 裝飾線 */
+            hr{
+                width: 250px;
+                border: none;
+                height: 1px;
+                background: linear-gradient(to right, transparent, rgb(80, 79, 78), transparent); /* 漸層線 */
+                margin: 10px auto; /* 線置中 */
+            }
+
+            /* 文字樣式 */
+
+            /*Natsusai & Reiya*/
+            h1{
+                margin-top: 10px;
+                font-size: 30px;
+                font-family: "Mea Culpa", 'Times New Roman' , serif;/* 字體 */
+                color: rgb(66, 73, 73);
+                text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3);
+                text-align: center;
+            }
+
+            /*Wedding Invitation*/
+            .invitation{
+                font-size: 26px;
+                font-weight: 700;
+                font-family: "Mea Culpa", 'Times New Roman' , serif;
+                color: rgb(66, 73, 73);
+                margin-top: 4px;
+                text-align: center;
+            }
+
+            /*A love written in summer.*/
+            h2{
+                font-size: 24px;
+                font-family: 'Times New Roman','Noto Serif TC', Times, serif;
+                font-style: italic;/* 斜體 */
+                color: rgb(66, 73, 73);
+                margin-top: 10px;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+
+            .text{
+                font-size: 18px;
+                font-family: "LXGW WenKai TC", Times, serif;
+                color: rgb(66, 73, 73);
+                margin-top: 10px;
+                text-align: start;
+                font-weight: 550;
+            }
+
+            .text-couple{
+                font-size: 28px;
+                font-family: "LXGW WenKai TC", Times, serif;
+                color: rgb(66, 73, 73);
+                margin-top: 10px;
+                text-align: start;
+                font-weight: 550;
+                margin-top: -5px;
+            }
+
+            .text-Reiya{
+                font-size: 18px;
+                font-family: "LXGW WenKai TC", Times, serif;
+                color: rgb(78, 139, 218);
+                text-align: right;
+                font-weight: 450;
+                font-style: italic;
+                margin-top: 10px;
+                margin-bottom: 4px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .text-natsusai{
+                font-size: 18px;
+                font-family: "LXGW WenKai TC", Times, serif;
+                color: rgb(120, 78, 218);
+                text-align: right;
+                font-weight: 450;
+                font-style: italic;
+                margin-bottom: 10px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            /*文字並排*/
+            .container{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            /*詩*/
+            blockquote{
+                font-size: 20px;
+                font-family: 'Times New Roman', Times, serif;
+                color: rgb(66, 73, 73);
+                margin-top: 26px;
+                text-align: center;
+            }
+
+            .data{
+                color:rgb(66, 73, 73);
+                text-align: center;
+                font-family: 'Mea Culpa';
+                margin-top: auto;
+                text-align: center;
+                font-weight: 900;
+            }
+
+            /* 卡片翻轉動畫 */
+            .card:hover .font{
+                transform: rotateY(180deg);
+            }
+
+            .card:hover .back{
+                transform: rotateY(0);
+            }
+
+            .font,.back{
+                backface-visibility: hidden;
+            }
+
+            .font, .back{
+                position: absolute;
+                transition: transform 0.6s ease;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <!-- 正面卡片內容 -->
+            <div class="font">
+                <!-- 裝飾線 -->
+                <hr>
+                <h1>Natsusai & Reiya</h1>
+                <!-- 短詩開頭 -->
+                <h2>A love written in summer.<br><small style="font-family: 'Mea Culpa','Noto Serif TC',cursive;font-style: italic; font-size: 16px;">寄情於夏</small></h2>
+                <img src="f:\邱子瑄\網頁設計\塗鴉23.png" alt="圖">
+                <p class="invitation">Wedding Invitation</p>
+                <blockquote>
+                <i>
+                Shall I compare thee to a summer's day?<br>
+                But thy eternal summer shall not fade,<br>
+                So long lives this, and this gives life to thee.
+                </i>
+                </blockquote>
+                <p class="data"><i>2027.02.30</i></p>
+            </div>
+            <!-- 背面卡片內容 -->
+            <div class="back">
+                <h2>寄情於夏<br><p style="font-family: 'Noto Serif TC',cursive;font-style: italic; font-size: 16px;">願愛長存</p></h2>
+                    <p class="text">誠邀：</p>
+                    <p class="text">謹訂於 2027 年 02 月 30 日舉行結婚典禮。</p>
+                    <div class="container">
+                        <span class="text">新娘<br><p class="text-couple">墨蕾雅</p></span>
+                        <span class="text">新郎<br><p class="text-couple">藥師寺夏碎</p></span>
+                    </div>
+                    <hr>
+                    <p class="text">誠摯邀請您與我們一同分享喜悅。</p>
+                    <br>
+                    <p class="text">日期：2027年2月30日</p>
+                    <p class="text">地點：守世界的盡頭</p>
+                    <p class="text">時間：28 點 65 分</p>
+                    <p class="text-Reiya">墨蕾雅</p>
+                    <p class="text-natsusai">藥師寺夏碎</p>
+                    <p class="data">2027.02.30</p>
+            </div>
+        </div>
+    </body>
+</html>
